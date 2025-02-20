@@ -5,8 +5,8 @@
     box-sizing: border-box;
 }
 .back-home-btn {
-    background-color: #313335;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -17,7 +17,7 @@
 }
 
 .back-home-btn:hover {
-    background-color: #052281;
+    background-color: #979797;
 }
 
 .back-home-btn i {
@@ -109,4 +109,11 @@
 .container >.card-body > .btn > button:hover{
     transform: scale(1.1);
     background-color: rgb(167, 31, 31);
+}
+@media (max-width: 768px) {
+    .login-card {
+        width: 95%; 
+        margin: 10px auto; 
+        padding: 15px; 
+    }
 }

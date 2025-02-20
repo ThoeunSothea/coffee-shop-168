@@ -5,19 +5,19 @@
     box-sizing: border-box;
 }
 .back-home-btn {
-    background-color: #313335;
-    color: white;
+    /* background-color: #feffff; */
+    color: rgb(0, 0, 0);
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 50px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px; 
+    gap: 10px; 
 }
 
 .back-home-btn:hover {
-    background-color: #052281;
+    background-color: #979da5;
 }
 
 .back-home-btn i {
