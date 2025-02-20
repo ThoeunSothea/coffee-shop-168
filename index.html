@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project</title>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bokor&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            width: 100%;
+            height: auto;
+        }
+        body{
+            font-family: "Bokor", serif;
+            width:100%;
+            height: 100vh;
+            scroll-behavior: smooth;
+        }
+        section{
+            scroll-margin-top: 80px;
+        }
+        .slider {
+        width: 950px;
+        height: 550px;
+        overflow: hidden;
+        position: relative;
+        margin: 100px auto; 
+        scroll-behavior: smooth;
+        display: grid;
+        place-content: center;
+        }
+
+
+        .slide {
+            margin: 10px;
+            top: 0;
+            width: 100%;
+        }
+
+        .slide img {
+            margin: 10px 0;
+            width: 750px;
+            height: 700px;
+            overflow: hidden;
+        }
+
+        .slide-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: rgb(253, 232, 232);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin: 10px 100px;
+        }
+
+        .slide-btn.left {
+            left: 10px ;
+        }
+        .slide-btn.right {
+            right: 10px;
+            
+        }
+        header{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            left: 0;
+            z-index: 1000;
+            padding:  0;
+            box-sizing: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            
+        }
+        .nav1{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            
+        }
+        .nav-logo{
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .nav-logo img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+
+        }
+        .nav-logo h1{
+            margin-left: 10px;
+        }
+        .nav-menu {
+        background-color: #333;
+        padding: 10px;
+        position: relative;
+        }
+
+        .menu-icon {
+            display: none; 
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            /* background: #444; */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        nav ul li {
+            padding: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 0px 20px ;
+            font-size: 20px;
+        }
+
+        nav ul input[type="search"] {
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        /* .nav-meun{
+            display:;
+        }
+        .nav-meun ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: #333;
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav-meun ul li{
+            padding: 0 10px;
+            margin: 0 30px;
+        }
+        .nav-meun ul li a{
+            text-decoration: none;
+            color: #fff;
+        } */
+        .nav-meun ul li a:hover{
+            color: aquamarine;
+        }
+        .nav-meun input{
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            margin-left: 20px;
+        }
+        .nav2{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-body{
+            scroll-behavior: smooth;
+            width: 300px;
+            height: 50%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin: 10px;
+            top: -50px;
+        }
+        .nav-card{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .nav-card img{
+            width: 200px;
+            height: 300px;
+            
+        }
+        
+
+        .About{
+            scroll-behavior: smooth;
+            width: 100%;
+            height: 100%;
+        }
+        .About a{
+            text-decoration: none;
+            color: #000;
+        }
+        .About h2{
+            text-align: center;
+            margin: 20px;
+        }
+        .About-body{
+            width: 100%;
+            height: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 10px;
+            top: -50px;
+        }
+        .About-body img{
+            width: 250px;
+            height: 200px;
+            border-radius: 16px;
+            overflow: hidden;
+            object-fit: cover;
+            padding: 10px;
+        }
+        footer {
+        background-color: #222;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        scroll-behavior: smooth;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .footer-section {
+            flex: 1;
+            margin: 10px;
+            min-width: 250px;
+        }
+        .footer-section h3 {
+            margin-bottom: 10px;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin: 5px 0;
+        }
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-section ul li a:hover {
+            color: aquamarine;
+        }
+        .footer-section .contact{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            place-content: center;
+        }
+        .footer-section .contact .contact1{
+            margin: 20px 100px;
+        }
+        .footer-icons {
+            flex: 1;
+            margin: 10px;
+            min-width: 250px;
+            display: flex;
+            place-items: center;
+            text-decoration: none;
+            
+        }
+        .footer-icons a {
+            color: rgb(161, 166, 247);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer-icons a:hover {
+            color: rgb(69, 18, 209);
+        }
+        .footer-icons i {
+            font-size: 1.5rem;
+        }
+        .follow{
+            display: grid;
+            place-content: center;
+            align-items: center;
+        }
+        .follow h3{
+            font-size: 30px;
+        }
+        .footer-container{
+                display:grid ;
+                align-items: center;
+                justify-content: space-between;
+                text-align: center;
+            }
+        .footer-section h3{
+                padding:0;
+                margin: 10px 20px;
+                text-align: center;
+            }
+        .footer-bottom {
+            margin-top: 20px;
+            border-top: 1px solid gray;
+            padding-top: 10px;
+        }
+         /* @media screen and (max-width: 768px){
+            *{
+                padding: 0;
+                margin:0;
+                box-sizing: border-box;
+            }
+            html{
+                width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 0;
+            }
+            body{
+            font-family: "Bokor", serif;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            }
+            main{
+                width: 100%;
+                min-height: 100vh;
+                padding-top: 80px;
+            }
+            .nav-body,.nav2,.About-body{
+                width: 100%;
+                height: auto;
+            }
+            .nav1 .nav-meun ul{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+            .nav2{
+                flex-direction: column;
+            }
+            .nav-body{
+                width: 100%;
+                height: auto;
+            }
+            .nav-logo img{
+                width: 40px;
+                height: 40px;
+            }
+            .nav-card img{
+                width: 150px;
+                height: 200px;
+            }
+            .slider{
+                width: 100%;
+                height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .slider-body{
+                display: grid;
+                align-items: center;
+                place-content: center;
+                margin: 0;
+                padding: 0;
+            }
+            .slide{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                place-content: center;
+                margin: 0;
+                padding: 0;
+            }
+            .slide img {
+                margin: 10px 0;
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+            }
+
+            .slide-btn{
+                margin:10px 0;
+            }
+            .About{
+                width: 100%;
+                height: 100%;
+            }
+            .About-body{
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                padding: 20px;
+                margin: 10px;
+            }
+            .menu-icon {
+                display: block; 
+                margin: 0;
+                padding: 0;
+                font-size: 24px;
+                color: white;
+                cursor: pointer;
+                position:fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1001;
+            }
+            
+            nav ul {
+                display: n; 
+                flex-direction: column;
+                position: fixed;
+                top: 5px;
+                right: 0;
+                width: 50%;
+                background: #333;
+                text-align: center;
+                padding: 20px 0;
+                transition:transform 0.3s ease-in-out;
+                transform: translateY(-100%);
+            }
+
+            nav ul.show{
+                display: flex;
+                transform: translateY(0);
+            }
+            nav ul li {
+                padding: 15px 0;
+            }
+
+            nav ul input[type="search"] {
+                display: none;
+            }
+            .footer-icons{
+                display: flex;
+
+            }
+            .menu{
+                margin-top: 60px;
+                text-align: center;
+                padding: 20px;
+            }
+            
+             section{
+                padding-top: 80px;
+                margin-top: -80px;
+            } *
+            .follow{
+            display: grid;
+            place-content: center;
+            }
+            .follow h3{
+                font-size: 30px
+            }
+            
+            .footer-container{
+                display: grid;
+                align-items: center;
+                justify-content: space-between;
+                text-align: justify;
+            }
+            .footer-section{
+                display: grid;
+                text-align: center;
+                justify-content:center;
+                padding: 20px 0;
+            }
+            .contact{
+                margin: 20px;
+            }
+            .contact1{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                place-content: center;
+            }
+
+
+        }  */
+        @media screen and (max-width: 768px){
+            *{
+                padding: 0;
+                margin:0;
+                box-sizing: border-box;
+            }
+            html{
+                width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 0;
+            }
+            body{
+            font-family: "Bokor", serif;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            }
+            main{
+                width: 100%;
+                min-height: 100vh;
+                padding-top: 80px;
+            }
+            .nav-body,.nav2,.About-body{
+                width: 100%;
+                height: auto;
+            }
+            .nav1 .nav-meun ul{
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+            }
+            .nav2{
+                flex-direction: column;
+            }
+            .nav-body{
+                width: 100%;
+                height: auto;
+            }
+            .nav-logo img{
+                width: 40px;
+                height: 40px;
+            }
+            .nav-card img{
+                width: 150px;
+                height: 200px;
+            }
+            .slider{
+                width: 100%;
+                height: 370px;
+                top: 0;
+            }
+            .slider-body{
+                display: grid;
+                align-items: center;
+                place-content: center;
+                margin: 0;
+                padding: 0;
+            }
+            .slide{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                place-content: center;
+                margin: 0;
+                padding: 0;
+            }
+            .slide img {
+                margin: 10px 0;
+                width: 400px;
+                height: 400px;
+                overflow: hidden;
+            }
+
+            .slide-btn{
+                margin: 0 25px;
+            }
+            .About{
+                width: 100%;
+                height: 100%;
+            }
+            .About-body{
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                padding: 20px;
+                margin: 10px;
+            }
+            .menu-icon {
+                display: block; 
+                margin: 0;
+                padding: 0;
+                font-size: 30px;
+                color: white;
+                cursor: pointer;
+                position:fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1000;
+            }
+            
+            nav ul {
+                display:none; 
+                flex-direction: column;
+                position: fixed;
+                top: 5px;
+                right: 0;
+                width: 100%;
+                background: #333;
+                text-align: center;
+                padding: 20px 0;
+                transition:transform 0.3s ease-in-out;
+                transform: translateY(-100%);
+            }
+
+            nav ul.show{
+                display: none;
+                transform: translateY(0);
+            }
+            nav ul li {
+                padding: 15px 0;
+            }
+
+            nav ul input[type="search"] {
+                display: none;
+            }
+            .footer-icons{
+                display: flex;
+
+            }
+            .menu{
+                margin-top: 60px;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            
+            .follow{
+            display: grid;
+            place-content: center;
+            }
+            .follow h3{
+                font-size: 30px
+            }
+            
+            .footer-container{
+                display: grid;
+                align-items: center;
+                justify-content: space-between;
+                text-align: center;
+            }
+            .footer-section{
+                display: grid;
+                text-align: center;
+                justify-content:center;
+                padding: 20px 0;
+            }
+            .contact{
+                margin: 20px;
+            }
+            .contact1{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                place-content: center;
+            }
+
+
+        }
+                
+
+        @media screen and (max-width: 1024px){
+            .nav-body{
+                width: 90%;
+            }
+            .slide{
+                width: 100%;
+
+            }
+            
+            
+        }
+
+    </style>
+</head>
+<body id="top">
+    <header>
+        <section class="nav1" >
+            <div class="nav-logo">
+                <img src="img/Cafe-Amazon 6 .jpg" alt="logo">
+                <h1>My Project</h1>
+            </div>
+            <div class="nav-meun" id="nav-meun">
+                <nav>
+                    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+                    <ul id="menu">
+                        <li><a href="#top">Home</a></li>
+                        <li><a href="#OUR">Course</a></li>
+                        <li><a href="#follow">Follow</a></li>
+                        <li><a href="About.html">About US</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="3-login-card.html">Login</a></li>
+                        <input type="search" placeholder="Search Here">
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </header>
+    <main>
+        <section class="slider">
+            <div class="slider-body">
+                <button class="slide-btn left" onclick="prevSlide()">&#10094;</button>
+                <div class="slide">
+                    <img src="/img/coffee-1.jpg" alt="Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="/img/Coffee-2.jpg" alt="Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="/img/public 4.avif" alt="Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="/img/Cafe-Amazon 6 .jpg" alt="Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="/img/slider 11.jpg" alt="Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="/img/slider 3.jpg" alt="Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="/img/slider 4.png" alt="Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="/img/slider 33.jpg" alt="Slide 2">
+                </div>
+            <button class="slide-btn right" onclick="nextSlide()">&#10095;</button>
+        </section>
+        <hr><hr>
+        <br>
+        <section class="nav2">
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 11.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>5$</h3>
+                </div>
+            </div>
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 5.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>6$</h3>
+                </div>
+            </div>
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Cafe-Amazon 6 .jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>10$</h3>
+                </div>
+            </div>
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 7.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>5$</h3>
+                </div>
+            </div>
+        </section>
+        <section class="nav2">
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 8.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>10$</h3>
+                </div>
+            </div>
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 9.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>5$</h3>
+                </div>
+            </div>
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 10.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>5$</h3>
+                </div>
+            </div>
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 12.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>5$</h3>
+                </div>
+            </div>
+        </section>
+        <section class="nav2">
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 13.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>7$</h3>
+                </div>
+            </div>
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 14.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>5$</h3>
+                </div>
+            </div>
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 15.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>5$</h3>
+                </div>
+            </div>
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 16.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>5$</h3>
+                </div>
+            </div>
+        </section>
+        <section class="nav2">
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 11.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>5$</h3>
+                </div>
+            </div>
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 5.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>5$</h3>
+                </div>
+            </div>
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Cafe-Amazon 6 .jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>10$</h3>
+                </div>
+            </div>
+            <div class="nav-body">
+                <div class="nav-card">
+                    <h2>My Product</h2>
+                    <img src="img/Amazon 7.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+                    <h3>5$</h3>
+                </div>
+            </div>
+    </main>
+    
+    <main id="OUR">
+        <hr><hr><br>
+        <section class="About" >
+            <a href="#top">
+                <h2>OUR PRESENTATIONERS</h2>
+            </a>
+            <br>
+            <div class="About-body">
+                <h2>My Project</h2>
+                <img src="/img/Screenshot 2025-02-13 234512.png" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+            </div>
+            <div class="About-body">
+                <h2>My Project</h2>
+                <img src="/img/riv chiva 1.png" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+            </div>
+            <div class="About-body">
+                <h2>My Project</h2>
+                <img src="img/rin chiva 2.png" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+            </div>
+            <div class="About-body">
+                <h2>My Project</h2>
+                <img src="img/image.png" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+            </div>
+        </section>
+    </main>
+    <br><br>
+    <footer id="follow">
+        <div class="follow" >
+            <h3>Follow Us</h3>
+            <div class="footer-icons">
+                <a href="https://www.facebook.com/"><i class="fi fi-brands-facebook"></i></a>
+                <a href="https://x.com/"><i class="fi fi-brands-twitter"></i></a>
+                <a href="https://www.instagram.com/"><i class="fi fi-brands-instagram"></i></a>
+                <a href="https://www.linkedin.com/"><i class="fi fi-brands-linkedin"></i></a>
+                <a href="https://web.telegram.org/a/"><i class="fi fi-brands-telegram"></i></a>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-containe" id="AboutUs">
+            
+            <hr>
+                <div class="footer-section" id="contact">
+                    <h3>CONTACT</h3>
+                    <div class="contact">
+                        <div class="contact1">
+                            <ul>
+                                <li><a href="#top">Home</a></li>
+                                <li><a href="#AboutUs">About_US</a></li>
+                                <li><a href="">Contact</a></li>
+                                <li><a href="https://maps.app.goo.gl/tCo14CoywEbnPHD9A">Address</a></li>
+                                <li><a href="3-login-card.html">Login</a></li>
+                            </ul>
+                        </div>
+                        <div class="contact1" >
+                            <ul>
+                                    <li><a href="">Tel:+88599387901</a></li>
+                                    <li><a href="">Blog</a></li>
+                                    <li><a href="">Partnerships</a></li>
+                                    <li><a href="">Careers</a></li>
+                                    <li><a href="">Press</a></li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+    <script>
+        
+    let slideIndex = 0;
+
+    function showSlides() {
+        let slides = document.getElementsByClassName("slide");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 4000); 
+    }
+
+    function prevSlide() {
+        let slides = document.getElementsByClassName("slide");
+        slideIndex--;
+        if (slideIndex < 1) { slideIndex = slides.length }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+
+    function nextSlide() {
+        let slides = document.getElementsByClassName("slide");
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        menu.classList.toggle("show"); 
+    }
+    function closeMenu() {
+        var menu = document.getElementById("menu");
+        menu.classList.remove("show");
+    }
+
+    document.querySelectorAll("#menu li a").forEach(item => {
+        item.addEventListener("click", closeMenu);
+    });
+    document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', function (e) {
+        var targetId = this.getAttribute('href'); 
+        if (targetId.startsWith("#")) { 
+            e.preventDefault();
+            var targetElement = document.querySelector(targetId);
+            var navHeight = document.querySelector("nav").offsetHeight; 
+
+            if (targetElement) {
+                var targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 70; 
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+});
+    function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+    showSlides();
+</script>

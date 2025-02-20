@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT</title>
+    <link rel="stylesheet" href="About.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <button class="back-home-btn" onclick="window.location.href='index.html'">
+        <i class="fas fa-home"></i>
+    </button>
+    <main>
+        <section class = "Page1">
+            <div class="context">
+                <h1>WELCOME ABOUT</h1>
+                <p>Let's Explore our course </p>
+                <p style="font-size: 18px;color: gray;">What are you waitting for? Let's Start our course now!</p>
+                <button>Let's Go</button>
+            </div>
+        </section>
+
+        <section class = "Page2">
+            <a href="#top">
+                <div id = "course"  class="title">
+                    <h2>GLOBAL SELLER</h2>
+                </div>
+            </a>
+            <div class="container">
+                <div class="boy-card">
+                    <div class="image">
+                        <img src="img/image 2.png" alt="">
+                    </div>
+                    <div class="context">
+                        <h2>Sell in the Americas </h2>
+                        <p>Use a North America and Brazil unified account to reach Amazon customers in the US, Canada, Mexico, and Brazil.</p>
+                    </div>
+                    
+                    <div class="btn-pro">
+                        <div class="icon-title">
+                            <div class="icon">
+                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.bUPPcGujXHBrqlN6ip0XiAHaFv%26pid%3DApi&f=1&ipt=14b6fe3d558a0ca71008776b69d78c64cc1d2b586f8447c563272734eb290f86&ipo=images" alt="">
+                            </div>
+                            <h4>Jeff Bezos</h4>
+                        </div>
+                        <button>Start</button>
+                    </div>
+                </div>
+                
+                <div class="boy-card">
+                    <div class="image">
+                        <img src="img/image 3.png" alt="">
+                    </div>
+                    <div class="context">
+                        <h2>Sell to Europe</h2>
+                        <p>Use a Europe account to reach Amazon customers in 28 countries.</p>
+                    </div>
+                    
+                    <div class="btn-pro">
+                        <div class="icon-title">
+                            <div class="icon">
+                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.kLDoC-vyOQSv9cZYrDpuYgHaE9%26pid%3DApi&f=1&ipt=1466aeb293b36d9d995eb19dffe1640e710800f73dce88142bff8f6ab38e3b17&ipo=images" alt="">
+                            </div>
+                            <h4>Jack Ma</h4>
+                        </div>
+                        <button>Start</button>
+                    </div>
+                </div>
+                
+                <div class="boy-card">
+                    <div class="image">
+                        <img src="img/image 4.png" alt="">
+                    </div>
+                    <div class="context">
+                        <h2>Sell to the Asia-Pacific</h2>
+                        <p>
+                            Use country-specific Asia-Pacific accounts to reach Amazon customers in Australia, India, Japan, and Singapore.
+                        </p>
+                    </div>
+                    
+                    <div class="btn-pro">
+                        <div class="icon-title">
+                            <div class="icon">
+                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIF.QelbZ2tiOCoh7CpQyvuEoQ%26pid%3DApi&f=1&ipt=6f2da453f9ef25ea2247d2ac826846cb81812dc67dde4b464df0734034aba4cf&ipo=images" alt="">
+                            </div>
+                            <h4>Elon Musk</h4>
+                        </div>
+                        <button>Start</button>
+                    </div>
+                </div>
+            
+                
+                <div class="boy-card">
+                    <div class="image">
+                        <img src="img/image 5.png" alt="">
+                    </div>
+                    <div class="context">
+                        <h2>Sell Middle East,North Africa</h2>
+                        <p>Use country-specific Middle East and North Africa accounts to reach Amazon customers in the United Arab Emirates, Saudi Arabia, and Egypt.</p>
+                    </div>
+                    
+                    <div class="btn-pro">
+                        <div class="icon-title">
+                            <div class="icon">
+                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.qaEpasGzzohKFwkcLNMCEgHaFC%26pid%3DApi&f=1&ipt=b0862f1a1c26eee1f3e8521cc110c7b7a15966a4e0c55db55f81fdc275758770&ipo=images" alt="">
+                            </div>
+                            <h4>Richard Branson</h4>
+                        </div>
+                        <button>Start</button>
+                    </div>
+                </div>
+                </div>
+        </section> 
+    </main>
+</body>
+</html>
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        menu.classList.toggle("show"); 
+    }
+    function closeMenu() {
+        var menu = document.getElementById("menu");
+        menu.classList.remove("show");
+    }
+
+    document.querySelectorAll("#menu li a").forEach(item => {
+        item.addEventListener("click", closeMenu);
+    });
+</script>
