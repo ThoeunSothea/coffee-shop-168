@@ -145,6 +145,7 @@ footer {
 }
 #cartTable {
     width: 100%;
+    font-family: "Bokor", serif;
     border-collapse: collapse;
     margin-top: 20px;
 }
@@ -153,6 +154,7 @@ footer {
     padding: 10px;
     text-align: center;
 }
+
 @media screen and (max-width: 768px){
 .slider{
     width: 100%;

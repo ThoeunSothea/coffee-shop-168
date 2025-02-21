@@ -182,24 +182,25 @@
             <button class="buy-btn" onclick="placeOrder('Coffee 16', 6, 'quantity16')">Buy</button>
         </div>
     </section>
-
-    <h2>Shopping Cart</h2>
-    <button onclick="loginSeller()">Seller Login</button>
-    <button onclick="logoutSeller()">Logout</button>
-    <div id="cartSection" style="display: none;"​>
-        <table id="cartTable">
-            <thead>
-                <tr>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Total</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-            <button onclick="printInvoice()" style="display: none;">Print Invoice</button>
-        </table>
+    <section>
+        <h2 style="font-family: Bokor, serif;">Shopping Cart</h2>
+        <button onclick="loginSeller()" style="font-family: Bokor, serif;">Seller Login</button>
+        <button onclick="logoutSeller()" style="font-family: Bokor, serif;">Logout</button>
+        <div id="cartSection" style="display: none;"​>
+            <table id="cartTable">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <button onclick="printInvoice()" style="display: none;" style="font-family: Bokor, serif;">Print Invoice</button>
+            </table>
+    </section>
         
     </div>
     <!-- Footer -->
