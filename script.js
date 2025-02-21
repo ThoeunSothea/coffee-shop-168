@@ -73,10 +73,23 @@ window.onload = function() {
 };
 
 
-
     function placeOrder(coffeeName, price, quantityId) {
-        let quantity = parseInt(document.getElementById(quantityId).value);
-        if (quantity < 1) return;
+        let quantityInput = document.getElementById(quantityId);
+        let quantity = parseInt(quantityInput.value);
+
+        if (isNaN(quantity) || quantity < 1) {
+            alert("សូមបញ្ចូលចំនួនត្រឹមត្រូវ។");
+            return;
+        }
+
+        // គណនាថ្លៃសរុប
+        let totalAmount = price * quantity;
+
+        // បង្ហាញ Alert បញ្ជាក់ការកម្មង់
+        alert(`កម្មង់ជោគជ័យ! 🎉
+    អ្នកបានកម្មង់ ${quantity} ${coffeeName}(s)
+    សរុបថ្លៃ: $${totalAmount}
+    សូមរង់ចាំដំណើរការ។`);
 
         let existingProduct = cart.find(item => item.name === coffeeName);
         if (existingProduct) {
@@ -87,9 +100,45 @@ window.onload = function() {
         }
 
         localStorage.setItem("cart", JSON.stringify(cart));
+
         displayCart();
     }
+    function placeOrder(coffeeName, price, quantityId) {
+        
+        let quantity = parseInt(document.getElementById(quantityId).value);
+    
+        
+        if (isNaN(quantity) || quantity < 1) {
+            alert("សូមបញ្ចូលចំនួនត្រឹមត្រូវ។");
+            return; 
+        }
+    
+        
+        let totalAmount = price * quantity;
+    
 
+        let existingProduct = cart.find(item => item.name === coffeeName);
+        if (existingProduct) {
+            
+            existingProduct.quantity += quantity;
+            existingProduct.total = existingProduct.quantity * price;
+        } else {
+            
+            cart.push({ name: coffeeName, quantity: quantity, price: price, total: totalAmount });
+        }
+    
+        
+        localStorage.setItem("cart", JSON.stringify(cart));
+    
+        
+        alert(`កម្មង់ជោគជ័យ! 🎉
+    អ្នកបានកម្មង់ ${quantity} ${coffeeName}(s)
+    សរុបថ្លៃ: $${totalAmount}
+    សូមរង់ចាំដំណើរការ។`);
+    
+        
+        displayCart();
+    }
     function displayCart() {
         let cartTable = document.querySelector("#cartTable tbody");
         cartTable.innerHTML = "";
