@@ -154,7 +154,12 @@ footer {
     padding: 10px;
     text-align: center;
 }
-
+h2{
+    font-family: "Bokor", serif;
+}
+button{
+    font-family: "Bokor", serif;
+}
 @media screen and (max-width: 768px){
 .slider{
     width: 100%;
