@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 .back-home-btn {
-    background-color: #ffffff;
+    background-color:white;
     color: rgb(0, 0, 0);
     border: none;
     padding: 10px 20px;
@@ -21,7 +21,7 @@
 }
 
 .back-home-btn i {
-    font-size: 18px;
+    font-size: 22px;
 }
 .container{
     /* background-color: darkblue; */
