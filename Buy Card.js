@@ -102,34 +102,45 @@ window.onload = function() {
         //     displayCart();
         // }
         function placeOrder(name, price, quantityId, imageUrl) {
+            // Get the quantity entered by the user
             let quantity = document.getElementById(quantityId).value;
+        
+            // Validate quantity
             if (quantity < 1) {
                 Swal.fire({
                     title: '❌ Invalid Quantity',
-                    text: 'Please choose a quantity greater than or equal to 1.',
+                    text: 'Please choose a quantity greater\n than or equal to 1.',
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });
-                return; 
+                return;
             }
+        
+            // Calculate total amount
             let total = price * quantity;
-            
-            // let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-            
-            // let existingProduct = cart.find(item => item.name === coffeeName);
-
-            // if (existingProduct) {
-            //     existingProduct.quantity += parseInt(quantity);
-            //     existingProduct.total = existingProduct.quantity * price;
-            // } else {
-            //     cart.push({ name: coffeeName, quantity: parseInt(quantity), price: price, total: totalAmount });
-            // }
-
-            
-            // localStorage.setItem("cart", JSON.stringify(cart));
-            
-
+        
+            // Get cart from localStorage (or initialize an empty cart if not found)
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if the product already exists in the cart
+            let existingProduct = cart.find(item => item.name === name);
+        
+            if (existingProduct) {
+                // If the product exists, update its quantity and total price
+                existingProduct.quantity += parseInt(quantity);
+                existingProduct.total = existingProduct.quantity * price;
+            } else {
+                // If the product does not exist, add it to the cart
+                cart.push({ name: name, price: price, quantity: parseInt(quantity), total: total, imageUrl: imageUrl });
+            }
+        
+            // Save the updated cart back to localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+        
+            // Add the item to the table
+            updateCartTable(cart);
+        
+            // Show the order confirmation with QR code
             Swal.fire({
                 title: '🛒 ការកុម្ម៉ង់របស់អ្នកបានបញ្ជាក់!',
                 html: `
@@ -139,36 +150,134 @@ window.onload = function() {
                     <b>ចំនួន    : ${quantity}</b><br>
                     <b>តម្លៃសរុប : $${total}<br><br>
                     សូមកន្លែងរង់ចាំ.....!!</b><br>
-                    
                 `,
                 confirmButtonText: 'OK'
             });
         }
+        
+        // Function to update the cart table after an order
+function updateCartTable(cart) {
+    let tableBody = document.getElementById("cartTable").getElementsByTagName('tbody')[0];
 
-        function displayCart() {
-            console.log(cart); 
+    // Clear the table before adding updated data
+    tableBody.innerHTML = '';
+
+    // Loop through the cart and create a new row for each product
+    cart.forEach(item => {
+        let newRow = tableBody.insertRow(tableBody.rows.length);
+
+        let cell1 = newRow.insertCell(0);
+        let cell2 = newRow.insertCell(1);
+        let cell3 = newRow.insertCell(2);
+        let cell4 = newRow.insertCell(3);
+        let cell5 = newRow.insertCell(4);
+
+        cell1.innerText = item.name;
+        cell2.innerText = item.quantity;
+        cell3.innerText = '$' + item.price;
+        cell4.innerText = '$' + item.total;
+
+        // Create a container div for both buttons (Edit and Remove)
+        let buttonContainer = document.createElement("div");
+        buttonContainer.style.display = "flex"; // Align buttons horizontally
+
+        // Add Remove button
+        let removeButton = document.createElement("button");
+        removeButton.innerText = "លុប";
+        
+        removeButton.onclick = function() {
+            
+            Swal.fire({
+                title: '❌ Remove Item',
+                text: `Are you sure you want to remove ${item.name}?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, remove',
+                cancelButtonText: 'No, cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    
+                    removeItemFromCart(item.name);
+                    Swal.fire('Removed!', `${item.name} has been removed from your cart.`, 'success');
+                }
+            });
+        };
+        removeButton.style.marginRight = "10px"; 
+
+        
+        let editButton = document.createElement("button");
+        editButton.innerText = "កែប្រែ";
+        editButton.onclick = function() {
+            
+            Swal.fire({
+                title: '✏️ Edit Quantity',
+                text: `Do you want to edit the quantity for ${item.name}?`,
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, edit',
+                cancelButtonText: 'No, cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    
+                    editItemInCart(item.name);
+                }
+            });
+        };
+
+        
+        buttonContainer.appendChild(removeButton);
+        buttonContainer.appendChild(editButton);
+
+        // Append the button container to the cell
+        cell5.appendChild(buttonContainer);
+    });
+}
+
+// Function to remove an item from the cart
+function removeItemFromCart(name) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    
+    cart = cart.filter(item => item.name !== name);
+
+    
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+
+    updateCartTable(cart);
+}
+
+
+function editItemInCart(name) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    
+    let itemToEdit = cart.find(item => item.name === name);
+    if (itemToEdit) {
+        
+        let newQuantity = prompt(`សូមបញ្ចូលបរិមាណថ្មីសម្រាប់ ${name}`, itemToEdit.quantity);
+        newQuantity = parseInt(newQuantity);
+
+        if (newQuantity && newQuantity > 0) {
+            
+            itemToEdit.quantity = newQuantity;
+            itemToEdit.total = itemToEdit.price * newQuantity;
+
+            
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+
+            updateCartTable(cart);
+        } else {
+            alert("Invalid quantity!");
         }
-    function displayCart() {
-        let cartTable = document.querySelector("#cartTable tbody");
-        cartTable.innerHTML = "";
-
-        cart.forEach((item, index) => {
-            let row = `<tr>
-                <td>${item.name}</td>
-                <td>${item.quantity}</td>
-                <td>$${item.price}</td>
-                <td>$${item.total}</td>
-                <td><button onclick="removeItem(${index})">Remove</button></td>
-            </tr>`;
-            cartTable.innerHTML += row;
-        });
     }
+}
 
-    function removeItem(index) {
-        cart.splice(index, 1);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        displayCart();
-    }
+        
+
+        
+    
     function displayCart() {
         let cartTable = document.querySelector("#cartTable tbody");
         cartTable.innerHTML = "";
@@ -201,35 +310,26 @@ window.onload = function() {
         }
     }
     function printInvoice() {
-        let invoiceWindow = window.open("", "", "width=600,height=600");
-        let invoiceHTML = `<h2>Invoice</h2>
-        <table border="1" style="width:100%; border-collapse: collapse;">
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Total</th>
-            </tr>`;
-
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let invoiceContent = `<h1>Invoice</h1><table border="1"><thead><tr><th>Product Name</th><th>Quantity</th><th>Price</th><th>Total</th></tr></thead><tbody>`;
+    
         cart.forEach(item => {
-            invoiceHTML += `<tr>
-                <td>${item.name}</td>
-                <td>${item.quantity}</td>
-                <td>$${item.price}</td>
-                <td>$${item.total}</td>
-            </tr>`;
+            invoiceContent += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${item.price}</td>
+                    <td>$${item.total}</td>
+                </tr>
+            `;
         });
-
-        let totalAmount = cart.reduce((sum, item) => sum + item.total, 0);
-        invoiceHTML += `<tr>
-                <td colspan="3"><strong>Total</strong></td>
-                <td><strong>$${totalAmount}</strong></td>
-            </tr>
-        </table>`;
-
-        invoiceWindow.document.write(invoiceHTML);
-        invoiceWindow.document.close();
-        invoiceWindow.print();
+    
+        invoiceContent += `</tbody></table>`;
+    
+        // Open a new window and print the invoice
+        let printWindow = window.open('', '', 'height=600,width=800');
+        printWindow.document.write(invoiceContent);
+        printWindow.document.close();
+        printWindow.print();
     }
-
     displayCart();

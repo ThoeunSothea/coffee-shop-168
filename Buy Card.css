@@ -71,7 +71,7 @@ body {
 }
 
 .slide-btn.left {
-    left: 30px ;
+    left: 10px ;
 }
 .slide-btn.right {
     right: 10px;
@@ -89,9 +89,10 @@ body {
 
 .product {
     text-align: center;
-    width: 300px;
+    width: 400px;
     height: auto;
-    
+    border: 2px solid #5c5757;
+    padding: 10px;
 }
 
 .product img  {
@@ -131,12 +132,7 @@ footer {
     gap: 20px;
     margin-bottom: 40px;
 }
-.product {
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 200px;
-    text-align: center;
-}
+
 .buy-btn {
     background-color: #4CAF50;
     color: white;
@@ -161,6 +157,64 @@ h2{
 button{
     font-family: "Bokor", serif;
 }
+
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+    .animated-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #1d291e;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    
+    .animated-btn:hover {
+        background-color: #ce3535;
+        transform: scale(1.1);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    
+    .animated-btn:active {
+        transform: scale(1);
+        background-color: #388e3c;
+    }
+
+    
+    button {
+        margin: 10px;
+        display: inline-block;
+    }
+
+    
+    #cartTable {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    #cartTable th, #cartTable td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    #cartTable th {
+        background-color: #f4f4f4;
+    }
+
+    
+    #cartSection button {
+        margin-top: 20px;
+    }
 @media screen and (max-width: 768px){
 .slider{
     width: 100%;
