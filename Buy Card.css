@@ -47,8 +47,9 @@ body {
 }
 
 
-.slide {
+.slider-body {
     width: 100%;
+    height: 100%;
 }
 
 .slide img {
@@ -70,7 +71,7 @@ body {
 }
 
 .slide-btn.left {
-    left: 10px ;
+    left: 30px ;
 }
 .slide-btn.right {
     right: 10px;

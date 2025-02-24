@@ -33,112 +33,148 @@
     }
     showSlides();
 
-    function placeOrder(coffeeName, price, quantityId) {
-        const quantity = document.getElementById(quantityId).value;
-        const totalAmount = price * quantity;
+//     function placeOrder(coffeeName, price, quantityId) {
+//         const quantity = document.getElementById(quantityId).value;
+//         const totalAmount = price * quantity;
         
         
-        alert(`Order Success!!!! 
-            You have ordered ${quantity} ${coffeeName}(s) 
-            Total = $${totalAmount}
-            Please wait for processing.`);
-    }
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//         alert(`Order Success!!!! 
+//             You have ordered ${quantity} ${coffeeName}(s) 
+//             Total = $${totalAmount}
+//             Please wait for processing.`);
+//     }
+//     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function loginSeller() {
-    let password = prompt("Enter Seller Password:");
-    if (password === "chiva1234") { 
-        localStorage.setItem("sellerLogin", "true");
-        document.getElementById("cartSection").style.display = "block"; 
-    } else {
-        alert("Incorrect Password!");
-    }
-}
+// function loginSeller() {
+//     let password = prompt("Enter Seller Password:");
+//     if (password === "chiva1234") { 
+//         localStorage.setItem("sellerLogin", "true");
+//         document.getElementById("cartSection").style.display = "block"; 
+//     } else {
+//         alert("Incorrect Password!");
+//     }
+// }
 
-function logoutSeller() {
-    localStorage.removeItem("sellerLogin");
-    document.getElementById("cartSection").style.display = "none"; 
-}
+// function logoutSeller() {
+//     localStorage.removeItem("sellerLogin");
+//     document.getElementById("cartSection").style.display = "none"; 
+// }
 
-function checkSellerLogin() {
-    if (localStorage.getItem("sellerLogin") === "true") {
-        document.getElementById("cartSection").style.display = "block";
-    } else {
-        document.getElementById("cartSection").style.display = "none";
-    }
-}
+// function checkSellerLogin() {
+//     if (localStorage.getItem("sellerLogin") === "true") {
+//         document.getElementById("cartSection").style.display = "block";
+//     } else {
+//         document.getElementById("cartSection").style.display = "none";
+//     }
+// }
 
-window.onload = function() {
-    checkSellerLogin(); 
-};
+// window.onload = function() {
+//     checkSellerLogin(); 
+// };
 
 
-    function placeOrder(coffeeName, price, quantityId) {
-        let quantityInput = document.getElementById(quantityId);
-        let quantity = parseInt(quantityInput.value);
-
-        if (isNaN(quantity) || quantity < 1) {
-            alert("សូមបញ្ចូលចំនួនត្រឹមត្រូវ។");
-            return;
-        }
-
-        // គណនាថ្លៃសរុប
-        let totalAmount = price * quantity;
-
-        // បង្ហាញ Alert បញ្ជាក់ការកម្មង់
-        alert(`កម្មង់ជោគជ័យ! 🎉
-    អ្នកបានកម្មង់ ${quantity} ${coffeeName}(s)
-    សរុបថ្លៃ: $${totalAmount}
-    សូមរង់ចាំដំណើរការ។`);
-
-        let existingProduct = cart.find(item => item.name === coffeeName);
-        if (existingProduct) {
-            existingProduct.quantity += quantity;
-            existingProduct.total = existingProduct.quantity * price;
-        } else {
-            cart.push({ name: coffeeName, quantity: quantity, price: price, total: price * quantity });
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        displayCart();
-    }
-    function placeOrder(coffeeName, price, quantityId) {
+    
+//     function placeOrder(coffeeName, price, quantityId) {
         
-        let quantity = parseInt(document.getElementById(quantityId).value);
+//         let quantity = parseInt(document.getElementById(quantityId).value);
     
         
-        if (isNaN(quantity) || quantity < 1) {
-            alert("សូមបញ្ចូលចំនួនត្រឹមត្រូវ។");
-            return; 
-        }
-    
+//         if (isNaN(quantity) || quantity < 1) {
+//             alert("សូមបញ្ចូលចំនួនត្រឹមត្រូវ។");
+//             return; 
+//         }
         
-        let totalAmount = price * quantity;
-    
-
-        let existingProduct = cart.find(item => item.name === coffeeName);
-        if (existingProduct) {
+//         let totalAmount = price * quantity;
+        
+//         let existingProduct = cart.find(item => item.name === coffeeName);
+//         if (existingProduct) {
             
-            existingProduct.quantity += quantity;
-            existingProduct.total = existingProduct.quantity * price;
-        } else {
+//             existingProduct.quantity += quantity;
+//             existingProduct.total = existingProduct.quantity * price;
+//         } else {
             
-            cart.push({ name: coffeeName, quantity: quantity, price: price, total: totalAmount });
+//             cart.push({ name: coffeeName, quantity: quantity, price: price, total: totalAmount });
+//         }
+    
+        
+//         localStorage.setItem("cart", JSON.stringify(cart));
+        
+//         Swal.fire({
+//             title: 'Order Placed!',
+//             text: `${name} x ${quantity} = $${total}`,
+//             imageUrl: '/img/Amazon 12.png', 
+//             imageWidth: 150,
+//             imageHeight: 150,
+//             imageAlt: 'Product Image'
+//         })
+//     //     alert(`កម្មង់ជោគជ័យ! 🎉
+//     // អ្នកបានកម្មង់ ${quantity} ${coffeeName}(s)
+//     // សរុបថ្លៃ: $${totalAmount}
+//     // សូមរង់ចាំដំណើរការ។`);
+    
+        
+//         displayCart();
+//     }
+
+        // function placeOrder(coffeeName, price, quantityId) {
+        //     let quantityInput = document.getElementById(quantityId);
+        //     let quantity = parseInt(quantityInput.value);
+
+        //     if (isNaN(quantity) || quantity < 1) {
+        //         Swal.fire({
+        //             icon: 'error',
+        //             title: 'កំហុស!',
+        //             text: 'សូមបញ្ចូលចំនួនត្រឹមត្រូវ។',
+        //         });
+        //         return;
+        //     }
+
+        //     let totalAmount = price * quantity;
+
+            
+        //     let existingProduct = cart.find(item => item.name === coffeeName);
+        //     if (existingProduct) {
+        //         existingProduct.quantity += quantity;
+        //         existingProduct.total = existingProduct.quantity * price;
+        //     } else {
+        //         cart.push({ name: coffeeName, quantity: quantity, price: price, total: totalAmount });
+        //     }
+
+            
+        //     localStorage.setItem("cart", JSON.stringify(cart));
+
+            
+        //     Swal.fire({
+        //         title: 'កម្មង់ជោគជ័យ! 🎉',
+        //         text:` អ្នកបានកម្មង់ ${quantity} ${coffeeName}(s)\nសរុបថ្លៃ: $${totalAmount}\nសូមរង់ចាំដំណើរការ។`,
+        //         imageUrl: 'https://via.placeholder.com/150', 
+        //         imageWidth: 150,
+        //         imageHeight: 150,
+        //         imageAlt: 'Coffee Image',
+        //         confirmButtonText: 'OK'
+        //     });
+
+        //     displayCart();
+        // }
+        function placeOrder(name, price, quantityId, imageUrl) {
+            let quantity = document.getElementById(quantityId).value;
+            
+            let total = price * quantity;
+        
+            Swal.fire({
+                title: '🛒 Order Confirmed!',
+                text: `${name} x ${quantity} = $${total}`,
+                imageUrl: '/img/qr.jpg',
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: 'Product Image',
+                confirmButtonText: 'OK'
+            });
         }
-    
-        
-        localStorage.setItem("cart", JSON.stringify(cart));
-    
-        
-        alert(`កម្មង់ជោគជ័យ! 🎉
-    អ្នកបានកម្មង់ ${quantity} ${coffeeName}(s)
-    សរុបថ្លៃ: $${totalAmount}
-    សូមរង់ចាំដំណើរការ។`);
-    
-        
-        displayCart();
-    }
+
+        function displayCart() {
+            console.log(cart); 
+        }
     function displayCart() {
         let cartTable = document.querySelector("#cartTable tbody");
         cartTable.innerHTML = "";
@@ -184,8 +220,8 @@ window.onload = function() {
         if (newQuantity && !isNaN(newQuantity) && newQuantity > 0) {
             cart[index].quantity = parseInt(newQuantity);
             cart[index].total = cart[index].quantity * cart[index].price;
-            localStorage.setItem("cart", JSON.stringify(cart)); // ធ្វើបច្ចុប្បន្នភាព localStorage
-            displayCart(); // ធ្វើបច្ចុប្បន្នភាពតារាងកន្ត្រក
+            localStorage.setItem("cart", JSON.stringify(cart)); 
+            displayCart(); 
             alert("បានកែប្រែបរិមាណដោយជោគជ័យ!");
         } else {
             alert("បរិមាណមិនត្រឹមត្រូវ សូមព្យាយាមម្តងទៀត។");
