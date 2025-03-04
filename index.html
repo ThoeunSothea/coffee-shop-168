@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Project</title>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bokor&display=swap');
         *{
@@ -269,7 +272,8 @@
             text-decoration: none;
         }
         .footer-section ul li a:hover {
-            color: aquamarine;
+            color: rgb(82, 209, 181);
+            text-shadow: 0 0 10px rgb(109, 67, 0);
         }
         .footer-section .contact{
             display: flex;
@@ -300,13 +304,54 @@
         .footer-icons i {
             font-size: 1.5rem;
         }
+        
+
         .follow{
             display: grid;
             place-content: center;
             align-items: center;
         }
-        .follow h3{
+        .follow h2{
             font-size: 30px;
+        }
+        .follow h2 {
+            font-size: clamp(1.5rem, 2rem + 2vw, 3rem);
+        }
+        .follow h2 {
+            color: rgb(184, 181, 178);
+            text-shadow: 0 0 10px rgb(109, 67, 0);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+        }
+
+        .social-links i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3rem;
+            height: 3rem;
+            background-color: transparent;
+            border: 0.2rem solid rgb(109, 67, 0);
+            border-radius: 50%;
+            color: rgb(109, 67, 0);
+            font-size: 1.5rem;
+            transition: 0.2s linear;
+        }
+        
+        .social-links i:hover {
+            scale: 1.1;
+            color: white;
+            background-color: rgb(109, 67, 0);
+            filter: drop-shadow(0 0 10px rgb(109, 67, 0));
         }
         .footer-container{
                 display:grid ;
@@ -314,10 +359,12 @@
                 justify-content: space-between;
                 text-align: center;
             }
-        .footer-section h3{
+        .footer-section h2{
                 padding:0;
                 margin: 10px 20px;
                 text-align: center;
+                color: rgb(184, 181, 178);
+                text-shadow: 0 0 10px rgb(109, 67, 0);
             }
         .footer-bottom {
             margin-top: 20px;
@@ -910,21 +957,22 @@
     <br><br>
     <footer id="follow">
         <div class="follow" >
-            <h3>Follow Us</h3>
-            <div class="footer-icons">
-                <a href="https://www.facebook.com/"><i class="fi fi-brands-facebook"></i></a>
-                <a href="https://x.com/"><i class="fi fi-brands-twitter"></i></a>
-                <a href="https://www.instagram.com/"><i class="fi fi-brands-instagram"></i></a>
-                <a href="https://www.linkedin.com/"><i class="fi fi-brands-linkedin"></i></a>
-                <a href="https://web.telegram.org/a/"><i class="fi fi-brands-telegram"></i></a>
+            <h2>Follow Us</h2>
+            <div class="social-links" data-aos="flip-down" data-aos-duration="1000" data-aos-delay="1200" >
+                <a href="https://github.com/ThoeunSothea" ><i class="fa-brands fa-github"></i></a>
+                <a href="https://t.me/sothea048"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://www.youtube.com/@sotheaofficial8158"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.facebook.com/thoeurn.sothea.39/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/thoeurn.sothea.39/"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
+        <br>
         <hr>
         <div class="footer-containe" id="AboutUs">
             
             <hr>
                 <div class="footer-section" id="contact">
-                    <h3>CONTACT</h3>
+                    <h2>CONTACT</h2>
                     <div class="contact">
                         <div class="contact1">
                             <ul>
